@@ -1,13 +1,263 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --Fcolor-lawful-purple: #5E1B89;
+  --Fcolor-lawful-purple-lessen: #8136af;
+  --Fcolor-striking-orange: #F4512C;
+  --Fcolor-white: #F8FFFE;
+  --Fcolor-soft-orange: #FF7F4D;
+  --Fcolor-soft-purple: #9D71BC;
+  --gradient-Lexmeet: linear-gradient(30deg, #692891, #f35a38);
+  --gradient-orange: linear-gradient(30deg, #F4512C, #FF7F4D);
+  --gradient-Lexmeet-weak: linear-gradient(30deg, #f1d5ce, #e2ccf0);
+  --gradient-Lexmeet-to-bottom: linear-gradient(to bottom, #692891, #f35a38);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+body {
+  background: var(--gradient-Lexmeet);
+  background-repeat: no-repeat;
+  height: 94.8vh;
+}
+
+.App {
+  max-width: 650px;
+  width: 100%;
+  /* height: 100vh; */
+  max-height: 700px;
+  min-height: 400px;
+  box-shadow: 0 2px 6px #555;
+  margin: 50px auto;
+  padding: 50px;
+  border-radius: 6px;
+  background: #F8FFFE;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+
+}
+
+
+h1 {
+  text-align: center;
+
+  letter-spacing: 2px;
+  font-weight: 900;
+  color: #555;
+
+}
+
+form {
+  width: 100%;
+  height: 40px;
+  margin: 20px 0;
+  display: flex;
+
+}
+
+form input,
+form button {
+  flex: 2;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #555;
+  margin: 0 5px;
+}
+
+form button {
+  flex: 1;
+  background: #555;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+
+ul li {
+  list-style: none;
+  border-radius: 6px;
+  border: 1px dashed var(--Fcolor-lawful-purple-lessen);
+  margin: 5px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize;
+
+}
+
+ul li .active {
+  opacity: 0.7;
+  text-decoration: line-through;
+
+}
+
+ul li input,
+.row input {
+  margin-right: 5px;
+  transform: translateY(1px);
+  cursor: pointer;
+
+}
+
+ul li button,
+.row button {
+  border: none;
+  outline: none;
+  color: white;
+  background: orange;
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+ul li button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.row #delete {
+  background: crimson;
+  height: 2rem;
+
+}
+
+label {
+  cursor: pointer;
+  color: var(--Fcolor-striking-orange);
+  font-weight: 600;
+  font-size: 1.05rem;
+
+}
+
+li label {
+  width: 90%;
+
+}
+
+.nothingTodo {
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--Fcolor-lawful-purple-lessen);
+  text-align: center;
+  margin-top: 70px;
+}
+
+.appTitle {
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 45px;
+
+}
+
+.todoText {
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-size: 2.5rem;
+  color: var(--Fcolor-lawful-purple);
+}
+
+.AppText {
+  font-family: 'Roboto Slab', sans-serif;
+  color: var(--Fcolor-striking-orange);
+  font-size: 2.2rem;
+
+}
+
+.createButton {
+  font-family: 'Lato', sans-serif;
+  background-color: #F4512C;
+  border-bottom: none;
+  transition: all 0.5s ease;
+  font-size: 1.1rem;
+}
+
+.createButton:hover {
+  box-shadow: 0 2px 8px #FF7F4D;
+
+}
+
+.editButton {
+  background: var(--Fcolor-lawful-purple-lessen);
+}
+
+.saveButton {
+  background: var(--Fcolor-striking-orange);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 6px;
+  margin-left: -20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-Lexmeet-to-bottom);
+  border-radius: 6px;
+  position: relative;
+
+}
+
+::placeholder {
+  color: var(--Fcolor-soft-purple);
+}
+
+input[type="checkbox"]:checked {
+  accent-color: var(--Fcolor-striking-orange);
+}
+
+input[type="checkbox"]:checked~label {
+  accent-color: var(--Fcolor-lawful-purple-lessen);
+}
+
+.row {
+  margin-top: 20px;
+}
+
+.remainingTodo {
+  font-family: 'Lato', sans-serif;
+  color: var(--Fcolor-lawful-purple-lessen);
+  font-size: 1.1rem;
+  font-weight: lighter;
+}
+
+.remainingTodoNum {
+  color: var(--Fcolor-lawful-purple-lessen);
+  font-weight: 900;
+  font-size: 1.15rem;
+}
+
+.allText {
+  color: var(--Fcolor-lawful-purple-lessen);
+}
+
+@media(max-width: 400px) {
+  .App {
+    padding: 10px;
+  }
 }
